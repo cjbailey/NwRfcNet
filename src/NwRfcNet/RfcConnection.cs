@@ -192,6 +192,14 @@ namespace NwRfcNet
         #endregion
 
         /// <summary>
+        /// Sets the path to the nwrfcsdk\lib folder (in cases where this can't be defined in PATH)
+        /// </summary>
+        /// <param name="libPath">Path</param>
+        public void SetNwRfcSdkLibPath(string libPath) {
+            RfcInterop.SetDllDirectory(libPath);
+        }
+
+        /// <summary>
         /// Opens an RFC connection 
         /// </summary>
         public void Open()

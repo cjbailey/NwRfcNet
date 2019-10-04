@@ -6,7 +6,10 @@ namespace NwRfcNet.Interop
 {
     internal static partial class RfcInterop
     {
-        internal const string NwRfcLib = "sapnwrfc";
+        internal const string NwRfcLib = "sapnwrfc.dll";
+
+        [DllImport("kernel32.dll", CharSet = CharSet.Auto, SetLastError = true)]
+        internal static extern bool SetDllDirectory(string lpPathName);
 
         [DllImport(NwRfcLib, CharSet = CharSet.Unicode)]
         internal static extern RFC_RC RfcSetTraceLevel(IntPtr connection, string destination, uint traceLevel, out RFC_ERROR_INFO errorInfo);
